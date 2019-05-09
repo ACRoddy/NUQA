@@ -41,7 +41,7 @@ options:
 -d - distance metric (j for Jensen-Shannon divergence, h for Hellinger distance, Default:j)
 -p - prefix for output files (Default:NUQA)
 
-##License
+## License
 
 Released under GNU GPLv3
 Copyright 2019 Aideen Roddy
