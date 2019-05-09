@@ -8,12 +8,12 @@ A software to support an alignment-free sequence comparison of large-scale fastq
 
 Dependencies:
 
-  *[jellyfish](https://github.com/gmarcais/Jellyfish/releases) V2.2.6+ 
-  *phylip V3.6+
-  *gcc V6.5+
-  *autoconf V2.69+
-  *automake V1.15+
-  *Eigen (where /Eigen file containing the headers is located at /usr/local/include for an example run check file 'Eigen_help.txt')
+-  [jellyfish](https://github.com/gmarcais/Jellyfish/releases) V2.2.6+ 
+-  phylip V3.6+
+-  gcc V6.5+
+-  autoconf V2.69+
+-  automake V1.15+
+-  Eigen (where /Eigen file containing the headers is located at /usr/local/include for an example run check file 'Eigen_help.txt')
 
 
 Once all dependencies have been installed you can proceed with the following steps:
@@ -36,10 +36,10 @@ You can run NUQA using the following command
 `bash NUQA.sh -k <int> -t <int> -d <distance> -p <prefix> /path/to/directory/*.fastq`
 
 options:
-  k - chosen k-mer length (Default:21)
-  t - number of threads (Default:1)
-  d - distance metric (j for Jensen-Shannon divergence, h for Hellinger distance, Default:j)
-  p - prefix for output files (Default:NUQA)
+-  k - chosen k-mer length (Default:21)
+-  t - number of threads (Default:1)
+-  d - distance metric (j for Jensen-Shannon divergence, h for Hellinger distance, Default:j)
+-  p - prefix for output files (Default:NUQA)
 
 ## License
 
