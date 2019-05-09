@@ -1,0 +1,11 @@
+Example eigen install
+
+NB: This is just for guidance and may or may not be up-to-date
+
+After downloading the current tar ball from _ follow these steps (changing file names where necessary)
+
+tar -xzvf eigen-eigen-323c052e1731.tar.gz
+cd ./eigen-eigen-323c052e1731/
+cp -r ./Eigen /usr/local/include #This may require sudo privileges 
+
+Provided that the Eigen headers directory has been successfully transfered to /usr/local/include (and all other dependencies are met) NUQA should successfully compile.
