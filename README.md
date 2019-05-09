@@ -44,6 +44,7 @@ options:
 ## License
 
 Released under GNU GPLv3
+
 Copyright 2019 Aideen Roddy
 
 

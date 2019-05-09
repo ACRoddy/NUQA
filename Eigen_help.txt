@@ -2,7 +2,9 @@ Example eigen install
 
 NB: This is just for guidance and may or may not be up-to-date
 
-After downloading the current tar ball from _ follow these steps (changing file names where necessary)
+After downloading the current tar ball from: http://eigen.tuxfamily.org/index.php?title=Main_Page 
+
+follow these steps (changing file names where necessary)
 
 tar -xzvf eigen-eigen-323c052e1731.tar.gz
 cd ./eigen-eigen-323c052e1731/
