@@ -146,11 +146,11 @@ wait
 rm *.counts
 
 #merge files
-$CWD/nuqa_merge.exe ${sorted[@]} > $cm$k$Pre$suff
+nuqa_merge ${sorted[@]} > $cm$k$Pre$suff
 #END
 
 #distance calculations
-$CWD/nuqa_distance.exe -n $n$k$suff -l $Labs -d $dm $cm$k$Pre$suff > $Pre$us$k$dm$suff
+nuqa_distance -n $n$k$suff -l $Labs -d $dm $cm$k$Pre$suff > $Pre$us$k$dm$suff
 
 rm *.sorted
 
