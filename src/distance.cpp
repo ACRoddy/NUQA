@@ -76,6 +76,59 @@ ArrayXXd HellingerEigen(ArrayXd v, int N){
 	return (P.sqrt() - (P.transpose()).sqrt()).pow(2);
 }
 
+
+ArrayXXd Czekanowski(ArrayXd v, int N){
+	
+	static ArrayXXd P(N,N);
+	for (size_t i = 0, size = P.size(); i < size; i++)
+      	{
+		int j = i%N;
+		P(i) = (2*min(v[i/N],v[j]))/(v[i/N]+v[j]);
+	}
+
+	return P+P.transpose();
+
+}
+
+ArrayXXd ChiSq(ArrayXd v, int N){
+
+	static ArrayXXd P(N,N);
+	for (size_t i = 0, size = P.size(); i < size; i++)
+      	{
+		int j = i%N;
+		P(i) = (pow(v[i/N]-v[j],2))/(v[i/N]+v[j]);
+	}
+
+	return P+P.transpose();
+
+}
+
+
+ArrayXXd Cosine(ArrayXd v, int N){
+
+	static ArrayXXd P(N,N);
+	for (size_t i = 0, size = P.size(); i < size; i++)
+      	{
+		int j = i%N;
+		P(i) = v[i/N]*v[j];
+	}
+
+	return P;
+
+}
+
+ArrayXXd EarthMover(ArrayXd v, int N){
+
+	static ArrayXXd P(N,N);
+	for (size_t i = 0, size = P.size(); i < size; i++)
+      	{
+		int j = i%N;
+		P(i) = v[i/N]*v[j];
+	}
+
+	return P;
+
+}
 //Print Eigen Array in a format that can be read in by Phylip
 void printDM(ArrayXXd R, int N, vector<string> L){
 	cout << '\t' << N;
@@ -173,6 +226,22 @@ int main(int argc, char *argv[]) {
 			DM = &HellingerEigen;
 			break;
 
+		case 'z':
+			DM = &Czekanowski;
+			break;
+
+		case 'x':
+			DM = &ChiSq;
+			break;
+
+		case 'c':
+			DM = &Cosine;
+			break;
+
+		case 'e':
+			DM = &EarthMover;
+			break;
+
 		default:
 			DM = &JSDeigen;
 			break;
@@ -188,7 +257,6 @@ int main(int argc, char *argv[]) {
 			counts = strtok(NULL, " \n");
 			i++;
 		}
-
 		
 		temp += DM(kmerCount/normVals,Nsize);
 		
@@ -207,6 +275,26 @@ int main(int argc, char *argv[]) {
 
 		case 'h':
 			DistM  = temp.sqrt()/sqrt(2);
+			break;
+
+		case 'z':
+			DistM  = temp;
+			break;
+
+		case 'x':
+			DistM  = temp;
+			break;
+
+		case 'c':
+			for (size_t i = 0, size = temp.size(); i < size; i++)
+			{
+				int j = i%Nsize;
+				DistM(i,j)  = temp(i,j)/(temp(i,i)*temp(j,j));
+			}
+			break;
+
+		case 'e':
+			DistM  = temp;
 			break;
 
 		default:
